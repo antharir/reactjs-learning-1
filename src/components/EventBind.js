@@ -7,27 +7,34 @@ class EventBind extends Component {
     this.state = {
       message: "Hello",
     };
-    this.clickHandler = this.changeMessage.bind(this);
+    // this.clickHandler = this.changeMessage.bind(this);
   }
 
-  changeMessage() {
+  //   changeMessage() {
+  //     this.setState({
+  //       message: "Message changed",
+  //     });
+  //     console.log(this);
+  //   }
+
+  clickHandler = () => {
     this.setState({
-      message: "Message changed",
+      message: "message changed",
     });
-    console.log(this);
-  }
+  };
 
   render() {
     return (
       <div>
         <div>{this.state.message}</div>
+        {/* Performance implications with below snippet */}
         {/* <button onClick={this.changeMessage.bind(this)}>Click fo message change</button> */}
+         {/* Easiest approach */}
         {/* <button onClick={() => this.changeMessage()}>
           Click fo message change
         </button> */}
-        <button onClick={this.clickHandler}>
-          Click fo message change
-        </button>
+        
+        <button onClick={this.clickHandler}>Click fo message change</button>
       </div>
     );
   }
